@@ -1,3 +1,10 @@
 <?php
-	//Code for nurse login
+	/**
+	*/
+	include_once("adb.php");
+	/**
+	*NurseLogin  class
+	*/
+	
+	
 ?>
