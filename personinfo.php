@@ -35,6 +35,15 @@ class personinfo extends adb{
 						KnownAllergies=$knownallergies";
 		return $this->query($strQuery);				
 	}
+	/*
+	function addPerson($firstname='none',$lastname='none',$othernames='none',$dateofbirth=0,$height=1,$weight=1,$priorissues='none',
+						$knownallergies='none'){
+		$strQuery="insert into personinfo(FirstName,LastName,OtherNames,DateOfBirth,Height,Weight,PriorIssues,KnownAllergies)
+		          values ($firstname,$lastname,$othernames,$dateofbirth,$height,$weight,$priorissues,$knownallergies)";
+		return $this->query($strQuery);				
+	}
+	*/
+	
 	/**
 	*gets user records based on the filter
 	*@param string mixed condition to filter. If  false, then filter will not be applied

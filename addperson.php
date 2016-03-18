@@ -84,7 +84,9 @@
 	</body>
 </html>
 
+
 <?php
+/**
 	if(!isset($_REQUEST['firstname'])){
 		exit();		//if no data, exit
 	}
@@ -100,4 +102,4 @@
 		echo "Person Added";
 	}
 					
-?>
+?>*/
