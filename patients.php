@@ -1,25 +1,28 @@
 <?php
     include_once("adb.php");
     
-    class patients extends adb{
+    class person extends adb{
         
-        function patients(){
+        function person(){
             
         }
         
-        function findpatient($id){
+        function personinfo($id){
             $strQuery = "SELECT * FROM personinfo WHERE PID = '$id'";
             
             return $this -> query($strQuery);
         }
     }
 
+/*
+$obj = new person();
 
-$obj = new patients();
-
-$res = $obj -> findpatient(54402016);
+$res = $obj -> personinfo(54402016);
 
 if ($res == false){
     echo "me";
+
 }
+*/
+
 ?>
