@@ -44,7 +44,10 @@
     
     include_once("patients.php");
     
- if (isset($_REQUEST['txt'])){
+ if (!isset($_REQUEST['txt'])){
+     echo "ID not entered";
+ }
+else{
             $id = $_REQUEST['txt'];
 	//1) Create object of users class
         $obj = new person();
@@ -108,7 +111,7 @@ while ($row = $obj -> fetch()){
 
 
 echo "</table>";
-        }
+}
                         
                         
 
