@@ -32,6 +32,13 @@
 		<?php
 			$firstname="";
 			$lastname="";
+			$othernames="";
+			$dateofbirth="";
+			$height=0;
+			$weight=0;
+			$priorissues="";
+			$knownissues="";
+			
 			if(isset($_REQUEST['firstname'])){
 				
 				$firstname=$_REQUEST['firstname'];
@@ -67,58 +74,31 @@
 			<div>First Name: <input type="text" name="firstname" value="<?php echo $firstname ?>"/>
 			<div>Last Name: <input type="text" name="lastname" value="<?php echo $lastname ?>"/>
 			<div>Other Names:<input type="text" name="othernames" value="<?php echo $othernames ?>"/>
-			<div>Date of Birth:<input type="date" name="dateofbirth" value="<?php echo $dateofbirth ?>"/>
+			<div>Date of Birth:<input type="date" name="dateofbirth" value="<?php echo $dateofbirth ?>"/></div>
 			<div>Height:<input type="text" name="height" value="<?php echo $height ?>"/>
 			<div>Weight:<input type="text" name="weight" value="<?php echo $weight ?>"/>
 			<div>Prior Issues:<input type="text" name="priorissues" value="<?php echo $priorissues ?>"/>
 			<div>Known Issues:<input type="text" name="knownissues" value="<?php echo $knownissues ?>"/>
-
-          
-<?php
-	//a call to the class
-	include_once("personinfo.pho");
-	$obj= new personinfo();
-	$result=$obj->getPerson();
-	//echo $strQuery;
-	if($result==false){
-		//
-		echo "result is false";
-	}else{
-		//fetch
-		$row=$obj->fetch();
-		//print_r($result);
-		while($row){
-			echo "<option value='{$row['USERGROUP_ID']}'>{$row['GROUPNAME']}</option>";
-			$row=$result->fetch();
-		}
-	}
-	
-	?>				
-				</select>
-			</div>
+				</div>
 			<input type="submit" value="Add">
 		</form>	
 	</body>
 </html>
 
 <?php
-	if(!isset($_REQUEST['username'])){
+	if(!isset($_REQUEST['firstname'])){
 		exit();		//if no data, exit
 	}
 	
-	include_once("users.php");
-	$obj=new users();
-	$r=$obj->addUser($username,$firstname,"none",$password,1,3,1);
+	include_once("personinfo.php");
+	$obj=new personinfo();
+	$r=$obj->addPerson($firstname,$lastname,$othernames,$dateofbirth,$height,$weight,$priorissues,
+						$knownallergies);
+	
 	if($r==false){
 		echo "Error";
 	}else{
-		echo "User Added";
+		echo "Person Added";
 	}
-	
-	//add the php code to process the form data and add record here
-	//include class file
-	//create an object
-	//add the user data
-	// display feedback					
 					
 ?>

@@ -52,7 +52,7 @@ class personinfo extends adb{
 	*Searches for user by firstname, lastname 
 	*@param string text search text
 	*@return boolean true if successful, else false
-	*/
+	
 	function searchUsers($text=false){
 		$filter=false;
 		if($text!=false){
@@ -61,5 +61,6 @@ class personinfo extends adb{
 		
 		return $this->getUsers($filter);
 	}
+}*/
 }
 ?>
