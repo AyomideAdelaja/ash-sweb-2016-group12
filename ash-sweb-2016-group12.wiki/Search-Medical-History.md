@@ -1,0 +1,5 @@
+This code allows authenticated users to be able to view the medical history/information of a particular patient using their ID. 
+When the user asks after the log in page to search for the existence of a particular patient, a search page is opened. The search page has a search box with a button "search" on the side. In this box, the user is expected to enter the ID of the student/patient he/she wants to review.
+After entering the ID, the user is expected to click on the search button to be able to view the information of the patient in a table form. If the student does not exist in the clinic database, an empty table will show but if the student exists in the clinic database, the information of the student will be displayed in a table form. 
+
+If the user has not entered ID yet, it shows a text "Enter Patient ID" to serve as a reminder to the user to enter the ID of the student/patient before any information can be diplayed. Also, if the user does not enter anything in the search box and clicks the search button, a text "ID not entered" is displayed.
