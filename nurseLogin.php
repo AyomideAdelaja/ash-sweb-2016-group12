@@ -38,7 +38,7 @@
 						<?php echo  $strStatusMessage ;?>
 					</div>
 					<div id="divContent">
-						Content space
+						
 						<form action="" method="GET">
 			<div>Nurse ID: <input type="text" name="id" /></div>
 			<div>Password: <input type="password" name="password" />
