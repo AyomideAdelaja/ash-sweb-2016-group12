@@ -28,11 +28,7 @@
 						<input type="text" id="txtSearch" />
 						<span class="menuitem">search</span>		
 					</div>
-					<div id="divStatus" class="status">
-						status message
-					</div>
-					<div id="divContent">
-						Content space
+					
 		<?php
 			$firstname="";
 			$lastname="";
@@ -40,9 +36,33 @@
 				
 				$firstname=$_REQUEST['firstname'];
 				$lastname=$_REQUEST['lastname'];
+				$othernames=$_REQUEST['othernames'];
+				$dateofbirth=$_REQUEST['dateofbirth'];
+				$height=$_REQUEST['height'];
+				$weight=$_REQUEST['weight'];
+				$priorissues=$_REQUEST['priorissues'];
+				$knownissues=$_REQUEST['knownissues'];
+				
+				include_once("personinfo.php");
+				$obj=new personinfo();
+				$result=$obj->addPerson($firstname='none',$lastname='none',$othernames='none',$dateofbirth=0,$height=1,$weight=1,$priorissues='none',
+						$knownallergies='none');
+	
+					if($result==false){
+						$strStatusMessage="error while adding user";
+					}else{
+					$strStatusMessage="$firstname added";
+				}
 
+			
 			}
 		?>
+		<div id="divStatus" class="status">
+						status message
+					</div>
+					<div id="divContent">
+						Content space
+		
 		<form action="addperson.php" method="GET">
 			<div>First Name: <input type="text" name="firstname" value="<?php echo $firstname ?>"/>
 			<div>Last Name: <input type="text" name="lastname" value="<?php echo $lastname ?>"/>
@@ -53,28 +73,27 @@
 			<div>Prior Issues:<input type="text" name="priorissues" value="<?php echo $priorissues ?>"/>
 			<div>Known Issues:<input type="text" name="knownissues" value="<?php echo $knownissues ?>"/>
 
-
+          
 <?php
 	//a call to the class
-	include_once("usergroups.php");
-	$usergroup= new usergroups();
-	$result=$usergroup->getAllUserGroups();
+	include_once("personinfo.pho");
+	$obj= new personinfo();
+	$result=$obj->getPerson();
 	//echo $strQuery;
 	if($result==false){
 		//
 		echo "result is false";
 	}else{
 		//fetch
-		$row=$usergroup->fetch();
-		//print_r($row);
+		$row=$obj->fetch();
+		//print_r($result);
 		while($row){
 			echo "<option value='{$row['USERGROUP_ID']}'>{$row['GROUPNAME']}</option>";
 			$row=$result->fetch();
 		}
 	}
 	
-	//display in loop
-?>				
+	?>				
 				</select>
 			</div>
 			<input type="submit" value="Add">
