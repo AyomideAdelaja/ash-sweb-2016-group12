@@ -12,12 +12,13 @@ class adb{
 	}
 	/**
 	*Connect to database 
-	*@return boolean ture if connected else false
+	*@return boolean true if connected else false
 	*/
+
 	function connect(){
 		
 		//connect
-		$this->db=new mysqli(localhost,root,"God'sPrincess86",webtech);
+		$this->db=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 		if($this->db->connect_errno){
 			//no connection, exit
 			return false;
@@ -62,7 +63,7 @@ class adb{
 /*
 This is a test code
 $obj=new adb();
-if(!$obj->query("select * from users"))
+if(!$obj->query("select * from personsinfo"))
 {
 	echo "error";
 	exit();

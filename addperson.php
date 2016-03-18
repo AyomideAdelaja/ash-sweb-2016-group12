@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Add New User</title>
+		<title>Add New Person</title>
 		<link rel="stylesheet" href="css/style.css">
 		<script>
 			<!--add validation js script here
@@ -37,7 +37,7 @@
 			$height=0;
 			$weight=0;
 			$priorissues="";
-			$knownissues="";
+			$knownallergies="";
 			
 			if(isset($_REQUEST['firstname'])){
 				
@@ -48,17 +48,16 @@
 				$height=$_REQUEST['height'];
 				$weight=$_REQUEST['weight'];
 				$priorissues=$_REQUEST['priorissues'];
-				$knownissues=$_REQUEST['knownissues'];
+				$knownallergies=$_REQUEST['knownallergies'];
 				
 				include_once("personinfo.php");
 				$obj=new personinfo();
-				$result=$obj->addPerson($firstname='none',$lastname='none',$othernames='none',$dateofbirth=0,$height=1,$weight=1,$priorissues='none',
-						$knownallergies='none');
+				$result=$obj->addPerson($firstname,$lastname,$othernames,$dateofbirth,$height,$weight,$priorissues,$knownallergies);
 	
 					if($result==false){
 						$strStatusMessage="error while adding user";
 					}else{
-					$strStatusMessage="$firstname added";
+					$strStatusMessage="$firstname has been added";
 				}
 
 			
@@ -78,7 +77,7 @@
 			<div>Height:<input type="text" name="height" value="<?php echo $height ?>"/>
 			<div>Weight:<input type="text" name="weight" value="<?php echo $weight ?>"/>
 			<div>Prior Issues:<input type="text" name="priorissues" value="<?php echo $priorissues ?>"/>
-			<div>Known Issues:<input type="text" name="knownissues" value="<?php echo $knownissues ?>"/>
+			<div>Known Allergies:<input type="text" name="knownallergies" value="<?php echo $knownallergies ?>"/>
 				</div>
 			<input type="submit" value="Add">
 		</form>	
