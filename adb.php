@@ -1,19 +1,20 @@
 <?php
-/**
-*Database connection helper
-*/
+
 include_once("setting.php");
 /**
 * Database connection helper class
 */
 class adb{
+	
 	var $db=null;
 	var $result=null;
+	
 	function adb(){
 	}
+	
 	/**
 	*Connect to database 
-	*@return boolean ture if connected else false
+	*@return boolean true if connected else false
 	*/
 	function connect(){
 		
@@ -29,6 +30,7 @@ class adb{
 	/**
 	*Query the database 
 	*@param string $strQuery sql string to execute
+	*@return boolean true if connected else false
 	*/
 	function query($strQuery){
 		if(!$this->connect()){
@@ -43,12 +45,13 @@ class adb{
 		}
 		return true;
 	}
-	/*
-	* Fetch from the current data set and return
-	*@return array one record
+	
+	/**
+	*Fetch from the current data set and return
+	*@return array one record if successfull, else return false
 	*/
 	function fetch(){
-		//Complete this funtion to fetch from the $this->result
+		
 		if($this->result==null){
 			return false;
 		}
@@ -63,7 +66,7 @@ class adb{
 /*
 This is a test code
 $obj=new adb();
-if(!$obj->query("select * from users"))
+if(!$obj->query("select * from UsersInfo"))
 {
 	echo "error";
 	exit();

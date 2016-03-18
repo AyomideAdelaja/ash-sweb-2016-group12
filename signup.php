@@ -15,28 +15,27 @@
 			</tr>
 			<tr>
 				<td id="mainnav">
-<!-- 					<div class="menuitem"><a href="groupsadd.php">Add New Usergroup Page</a></div> -->
-<!-- 					<div class="menuitem"><a href="usersadd.php">Add New User Page</a></div> -->
-					<div class="menuitem">menu 3</div>
-					<div class="menuitem">menu 4</div>
+					<div class="menuitem"><a href="#">menu 1</a></div>
+					<div class="menuitem">menu 2</div>
 				</td>
 				<td id="content">
 					<div id="divPageMenu">
-<!-- 						<span class="menuitem" ><a href="groupsadd.php">Add Usergroup</a></span> -->
 						<span class="menuitem" ><a href="index.php">Login</a></span>
 						<span class="menuitem" ><a href="signup.php">Sign Up</a></span>
-						<span class="menuitem" >page menu 3</span>
+						<span class="menuitem" ><a href="userdashboard.php">Dashboard</a></span>
+						<span class="menuitem" >page menu 4</span>
 						<input type="text" id="txtSearch" />
 						<span class="menuitem">search</span>		
 					</div>
 <?php
 			//initialize
-			$strStatusMessage ="Please Sign Up!";
+			$strStatusMessage ="Please Sign Up! Imcomplete code";
 			$uid="";
 			$firstname="";
 			$lastname="";
 			$username="";
 			$userpass="";
+			$userpassconf="";
 
 			//1) what is the purpose of this if block
 			if(isset($_REQUEST['uid'])){
@@ -55,7 +54,6 @@
 				include_once("usersInfo.php");
 				$obj=new usersInfo();
 				$r=$obj->addUser($uid, $firstname, $lastname, $username, $userpass);
-				//1) what is the purpose of this if block
 					
 				if($r == true){
 					echo "user added";
@@ -79,12 +77,12 @@
 			<div>LastName: <input type="text" name="lastname" value="<?php echo $lastname;  ?>"/></div>
 			<div>Username: <input type="text" name="username" value="<?php echo $username;  ?>"/></div>
 			<div>Password: <input type="password" name="password" value="<?php echo $userpass;  ?>"/></div>
-			<div>Confirm Password: <input type="password" name="confirm-password" value="<?php echo $userpass;  ?>"/></div>
+			<div>Confirm Password: 
+				<input type="password" name="confirm-password" value="<?php echo $userpassconf;  ?>"/>
+			</div>
 
-			<input type="submit" class="button-design" value="Submit">
-<!-- 			<a href="#" class="button-design">Sign Up</a> -->
-			
-<!-- 			<button type="button" onclick="alert('Hello World!')">Click Me!</button> -->
+			<input type="submit" value="Submit">
+
 		</form>							
 					</div>
 				</td>

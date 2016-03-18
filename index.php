@@ -15,17 +15,16 @@
 			</tr>
 			<tr>
 				<td id="mainnav">
-<!-- 					<div class="menuitem"><a href="groupsadd.php">Add New Usergroup Page</a></div> -->
-<!-- 					<div class="menuitem"><a href="usersadd.php">Add New User Page</a></div> -->
-					<div class="menuitem">menu 3</div>
-					<div class="menuitem">menu 4</div>
+					<div class="menuitem"><a href="#">menu 1</a></div>
+					<div class="menuitem">menu 2</div>
 				</td>
 				<td id="content">
 					<div id="divPageMenu">
 <!-- 						<span class="menuitem" ><a href="groupsadd.php">Add Usergroup</a></span> -->
 						<span class="menuitem" ><a href="index.php">Login</a></span>
 						<span class="menuitem" ><a href="signup.php">Sign Up</a></span>
-						<span class="menuitem" >page menu 3</span>
+						<span class="menuitem" ><a href="userdashboard.php">Dashboard</a></span>
+						<span class="menuitem" >page menu 4</span>
 						<input type="text" id="txtSearch" />
 						<span class="menuitem">search</span>		
 					</div>
@@ -41,33 +40,21 @@
 				$userpass=$_REQUEST['password'];
 				include_once("usersInfo.php");
 				$obj=new usersInfo();
-//				$r=$obj->logUserIn($username,$userpass);
+
 				$r=$obj->getUserToLogIn($username);
 				
 				if($r['Password'] == $userpass){
-		//			echo "passwords match";
+
 					$strStatusMessage ="Correct Login Credentials!";
 					header('Location: userdashboard.php?u='.$r['Username']);
-//					return true;
 				} else {
 					$strStatusMessage ="Incorrect Login Credentials! Please check your username or password and try again!!";
-		//			echo "passwords don't match";
 					
 				}
-				//1) what is the purpose of this if block
-					
-//				if($r == true){
-//					echo "login success";
-//					//redirect to another page
-//					
-////					exit;
-//				} else {
-//					echo "sorry login again";
-//				}
 
 			}
 ?>
-<!-- ??? -->
+
 					<div id="divStatus" class="status">
 						<?php echo  $strStatusMessage ?>
 					</div>
@@ -77,10 +64,7 @@
 			<div>Username: <input type="text" name="username" value="<?php echo $username;  ?>"/></div>
 			<div>Password: <input type="password" name="password" value="<?php echo $userpass;  ?>"/></div>
 
-			<input type="submit" value="Login">
-<!-- 			<a href="signup.php" class="button-design">Sign Up</a> -->
-			
-<!-- 			<button type="button" onclick="alert('Hello World!')">Click Me!</button> -->
+			<input type="submit" value="Login"> 
 		</form>							
 					</div>
 				</td>
