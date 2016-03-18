@@ -2,6 +2,8 @@
 /**
 *Database connection helper
 */
+include_once("setting.php");
+
 /**
 * Database connection helper class
 */
@@ -18,7 +20,7 @@ class adb{
 	function connect(){
 		
 		//connect
-		$this->db=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+		$this->db=new mysqlI(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 		if($this->db->connect_errno){
 			//no connection, exit
 			return false;
