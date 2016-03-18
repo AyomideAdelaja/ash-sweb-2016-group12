@@ -10,7 +10,7 @@
 		<table>
 			<tr>
 				<td colspan="2" id="pageheader">
-					<!--Application Header--!>
+					<!--Login--!>
 				</td>
 			</tr>
 			
@@ -22,14 +22,20 @@
 				$id=$_REQUEST['id'];
 				$password=$_REQUEST['password'];
 				include_once("nurses.php");
+				//create new object of nurses
 				$obj=new nurses();
-				$r=$obj->loginNurse($id,$password);
-				if($r==false){
-					$strStatusMessage="Incorrect User Id or password";
-				}else{
-					//header("Location:userslist.php");
+				//call the object's loginNurse method and check for error
+				if($obj->loginNurse($id,$password)!=false){
+					$r=$obj->loginNurse($id,$password);
+					echo $r;
+					$result=$obj->fetch();
+					echo "Welcome {$result["username"]}";
+					//Redirect to 
+					//header("Location:home.php");
 					//exit();
-					$strStatusMessage="Welcome $r ";
+				}
+				else{
+					echo "Incorrect UserID or password";
 				}
 
 			}

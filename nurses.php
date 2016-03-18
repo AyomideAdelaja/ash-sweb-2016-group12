@@ -6,7 +6,7 @@ include_once("adb.php");
 *Nurse  class
 */
 class nurses extends adb{
-	function nurse(){
+	function nurses(){
 	}
 	
 	/**
@@ -15,7 +15,7 @@ class nurses extends adb{
 	*@return boolean true if successful, else false
 	*/
 	function loginNurse($id,$password){
-		$strQuery="select username from NurseInfo where nurseID='$id' and password='$password'";
+		$strQuery="select username from NurseInfo where nurseID='$id' and password='$password'  and nurseID!='' and password!=''";
 		return $this->query($strQuery);
 	}
 }
