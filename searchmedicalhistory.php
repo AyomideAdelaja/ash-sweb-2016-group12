@@ -47,12 +47,12 @@
  if (isset($_REQUEST['txt'])){
             $id = $_REQUEST['txt'];
 	//1) Create object of users class
-        $obj = new patients();
+        $obj = new person();
                         
         
        
             
-            $result = $obj -> findpatient($id);
+            $result = $obj -> personinfo($id);
         
                         
        
@@ -70,15 +70,15 @@
 	//3) show the result
     echo "<table border = 1>
 <tr bgcolor = 'RED'>
-    <td><font color = 'WHITE'>PERSON ID</font></td>
-    <td><font color = 'WHITE'>FIRST NAME</font></td>
-    <td><font color = 'WHITE'>LAST NAME</font></td>
-    <td><font color = 'WHITE'>OTHER NAMES </font></td>
-    <td><font color = 'WHITE'>DATE OF BIRTH</font></td>
-    <td><font color = 'WHITE'>HEIGHT</font></td>
-    <td><font color = 'WHITE'>WEIGHT</font></td>
-    <td><font color = 'WHITE'>PRIOR ISSUES</font></td>
-    <td><font color = 'WHITE'>KNOWN ALLERGIES</font></td>
+    <td>PERSON ID</font></td>
+    <td>FIRST NAME</td>
+    <td>LAST NAME</td>
+    <td>OTHER NAMES </td>
+    <td>DATE OF BIRTH</td>
+    <td>HEIGHT</td>
+    <td>WEIGHT</td>
+    <td>PRIOR ISSUES</td>
+    <td>KNOWN ALLERGIES</td>
 </tr>";
 
 
@@ -87,15 +87,15 @@
 while ($row = $obj -> fetch()){
     if ($row['PID'] % 2 == 0){
     echo "<tr bgcolor = 'RED'>
-            <td>{$row['PID']}</td>
-            <td>{$row['FirstName']}</td>
-            <td>{$row['LastName']}</td>
-            <td>{$row['OtherNames']}</td>
-            <td>{$row['DateOfBirth']}</td>
-            <td>{$row['Height']}</td>
-            <td>{$row['Weight']}</td>
-            <td>{$row['PriorIssues']}</td>
-            <td>{$row['KnownAllergies']}</td>
+            <td><font color = 'WHITE'>{$row['PID']}</font></td>
+            <td><font color = 'WHITE'>{$row['FirstName']}</font></font></td>
+            <td><font color = 'WHITE'>{$row['LastName']}</font></td>
+            <td><font color = 'WHITE'>{$row['OtherNames']}</font></td>
+            <td><font color = 'WHITE'>{$row['DateOfBirth']}</font></td>
+            <td><font color = 'WHITE'>{$row['Height']}</font></td>
+            <td><font color = 'WHITE'>{$row['Weight']}</font></td>
+            <td><font color = 'WHITE'>{$row['PriorIssues']}</font></td>
+            <td><font color = 'WHITE'>{$row['KnownAllergies']}</font></td>
             
         </tr>";
        
