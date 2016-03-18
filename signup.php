@@ -24,6 +24,7 @@
 					<div id="divPageMenu">
 <!-- 						<span class="menuitem" ><a href="groupsadd.php">Add Usergroup</a></span> -->
 						<span class="menuitem" ><a href="index.php">Login</a></span>
+						<span class="menuitem" ><a href="signup.php">Sign Up</a></span>
 						<span class="menuitem" >page menu 3</span>
 						<input type="text" id="txtSearch" />
 						<span class="menuitem">search</span>		
@@ -53,13 +54,15 @@
 				
 				include_once("usersInfo.php");
 				$obj=new usersInfo();
-				$r=$obj->logUserIn($username,$userpass);
+				$r=$obj->addUser($uid, $firstname, $lastname, $username, $userpass);
 				//1) what is the purpose of this if block
 					
 				if($r == true){
-					echo "login success";
+					echo "user added";
+					$strStatusMessage ="User added";
 				} else {
-					echo "sorry login again";
+					echo "sorry user not added";
+					$strStatusMessage ="Sorry an error occured while adding the user";
 				}
 
 			}
@@ -76,7 +79,7 @@
 			<div>LastName: <input type="text" name="lastname" value="<?php echo $lastname;  ?>"/></div>
 			<div>Username: <input type="text" name="username" value="<?php echo $username;  ?>"/></div>
 			<div>Password: <input type="password" name="password" value="<?php echo $userpass;  ?>"/></div>
-			<div> Confirm Password: <input type="password" name="confirm-password" value="<?php echo $userpass;  ?>"/></div>
+			<div>Confirm Password: <input type="password" name="confirm-password" value="<?php echo $userpass;  ?>"/></div>
 
 			<input type="submit" class="button-design" value="Submit">
 <!-- 			<a href="#" class="button-design">Sign Up</a> -->

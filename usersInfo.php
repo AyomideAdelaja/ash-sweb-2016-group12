@@ -22,7 +22,7 @@ class usersInfo extends adb{
 	*/
 	function addUser($uid,$firstname,$lastname,$username,$password){
 
-		$strQuery="INSERT INTO `ash-sweb-group12-2016`.`UsersInfo` (`UID`, `FirstName`, `LastName`, `Username`, `Password`) VALUES ('$uid', '$firstname', '$lastname', '$username', MD5('$password'));";
+		$strQuery="INSERT INTO `ash-sweb-group12-2016`.`UsersInfo` (`UID`, `FirstName`, `LastName`, `Username`, `Password`) VALUES ('$uid', '$firstname', '$lastname', '$username', MD5('$password'))";
 		
 		return $this->query($strQuery);				
 	}
@@ -62,7 +62,7 @@ class usersInfo extends adb{
 	*@param string text search text
 	*@return boolean true if successful, else false
 	*/
-	function logUserIn($user=false,$pass=false){
+	function getUserToLogIn($user=false){
 		$filter=false;
 		if($user!=false){
 			$filter=" WHERE `Username` LIKE '$user'";
@@ -75,24 +75,18 @@ class usersInfo extends adb{
 		if($filter!=false){
 			$strQuery = $strQuery . $filter;
 		}
-
+		
+		$row = null;
 		if($this->query($strQuery)){
 			$row = $this->fetch();
-			
 		}
+		
+		return $row;
 		
 		//SELECT * FROM `UsersInfo` WHERE `Username` LIKE 'u'
 //		 = $this->getUsers($filter);
-		echo "Printing the array of user $user \n";
-		print_r($row);
-		
-		if($row['Password'] == $pass){
-			echo "passwords match";
-			return true;
-		} else {
-			echo "passwords don't match";
-			return false;
-		}
+//		echo "Printing the array of user $user \n";
+//		print_r($row);
 	}
 	
 	/***
