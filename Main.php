@@ -3,14 +3,18 @@
 		<title>Visiting Log</title>
 	</head>
 	<body>
-		<form action="adduser.php" method="GET">
-			Username: <input type="text" name="username"/>
-			User Group: <select name="usergroup">
-				<option value="1">Admin</option>
-				<option value="2">Students</option>
-				<option value="3">Faculty</option>
-			</select>
-			<input type="submit" value="Add">
+		<form action="<Main.php" method="GET">
+			<fieldset>
+				<legend>Adding Visiting Information</legend>
+					Date: <input type="date" name="visitdate"/><br>
+					Student ID: <input type="text" name="studId"/><br>
+					User ID: <input type="text" name="userId"/><br>
+					Observations: <input type="textarea" name="observe"/><br>
+					Vitals: <input type="textarea" name="vitalsinfo"/><br>
+					Symptoms: <input type="textarea" name="symptoms"/><br>
+					Prescriptions: <input type="textarea" name="prescripts"/><br>
+				<input type="submit" onclick='alert('Connection Established!')' value="Add">
+			</fieldset>
 		</form>	
 	</body>
 </html>
