@@ -81,12 +81,12 @@
 
 	if ($result->num_rows > 0){
 	//Row color alteration
-	$cellcol = array("blue", "green");
+	$cellcol = array("#1081C5", "88C0E1");
 	$cur=0; //counter for the cellcol array
 	//output header
-	echo "<h1>Table User</h1>";
+	echo "<fieldset><legend><h3>Visit Log</h3></legend>";
 	echo "<table style='width:100%' border='1px solid blue'>
-		<tr bgcolor='green'>
+		<tr bgcolor='#0C4D9F'>
 			<th>Visit ID</th>
 			<th>Date of Visit</th>
 			<th>Student ID</th>
