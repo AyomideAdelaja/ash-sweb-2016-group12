@@ -81,7 +81,7 @@
 
 	if ($result->num_rows > 0){
 	//Row color alteration
-	$cellcol = array("#1081C5", "88C0E1");
+	$cellcol = array("#1081C5", "#88C0E1");
 	$cur=0; //counter for the cellcol array
 	//output header
 	echo "<fieldset><legend><h3>Visit Log</h3></legend>";
