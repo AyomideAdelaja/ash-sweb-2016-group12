@@ -2,7 +2,7 @@
 	<head>
 		<title>Visiting Log</title>
 	</head>
-	<body>
+	<body><font face="calibri">
 		<fieldset>
 			<legend><h3>Adding Visiting Information</h3></legend>
 			<form action="Main.php" method="GET" id="usrform">
@@ -20,11 +20,15 @@
 
 
 <?php
+	//Master code for the project
+
+	//Connection details
 	$servername="localhost";
 	$username="root";
 	$password="";
 	$databasename="ashclinicgroup12";
 
+	//Database connection and check
 	$db = new mysqli($servername, $username, $password, $databasename);
 	if($db->connect_errno){
 		//no connection, exit
@@ -32,14 +36,10 @@
 		exit();
 	}
 	else{
-		echo "Connection established";
+		echo "Connection established<br>";
 	}
-
-
-	if(!isset($_REQUEST['visitdate'])){
-		exit();		//if no data, exit
-	}
-
+	
+	//Getting and validating form information
 	$vid="default";
 	$pid=$_REQUEST['studId'];
 	$uid=$_REQUEST['userId'];
@@ -48,6 +48,13 @@
 	$vitals=$_REQUEST['vitalinfo'];
 	$symptoms=$_REQUEST['symptoms'];
 	$prescripts=$_REQUEST['prescripts'];
+
+	//Checking for empty input
+	if($vid==null || $pid==null || $uid==null || $dateofvisit==null || $observe==null || $vitals==null ||
+		$symptoms==null || $prescripts==null){
+		echo "Incomplete Information Given";
+		exit();		//if no data, exit
+	}
 
 	$strQuery="INSERT INTO visitlogs SET
 				VID='$vid',
@@ -108,5 +115,4 @@
 				$cur=0;
 	}
 }
-	//Master code for the project
 ?>
