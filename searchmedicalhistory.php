@@ -11,7 +11,7 @@
 			<tr>
 				<td colspan="2" id="pageheader">
 					   MEDICAL HISTORY
-				</td>
+                    </td>
 			</tr>
 			<tr>
 				<td id="mainnav">
@@ -21,21 +21,21 @@
 				<td id="content">
 					<div id="divPageMenu">
 						<span class="menuitem" >page menu 1</span>
-						<input type="text" id="txtSearch" />
-						<span class="menuitem">search</span>		
+								
 					</div>
 					<div id="divStatus" class="status">
 						status message
 					</div>
 					<div id="divContent">
+                        
 						Content space
 					<form action="" method="GET">
                         
                         
-						<input type="text" name="txt">
+						<input type="text" name="txt" class = "clickspot">
 						
                         
-                        <input type="submit" value="search" >
+                        <input type="submit" value="search">
                         
 					</form>		
 <?php
@@ -45,10 +45,16 @@
     include_once("patients.php");
     
  if (!isset($_REQUEST['txt'])){
-     echo "ID not entered";
+     echo "ENTER PATIENT ID";
  }
 else{
-            $id = $_REQUEST['txt'];
+    $id = $_REQUEST['txt'];
+    
+    if ($id == NULL){
+        echo "ID not entered"; 
+    }
+    
+    else{
 	//1) Create object of users class
         $obj = new person();
                         
@@ -72,37 +78,37 @@ else{
 	
 	//3) show the result
     echo "<table border = 1>
-<tr bgcolor = 'RED'>
-    <td>PERSON ID</font></td>
-    <td>FIRST NAME</td>
-    <td>LAST NAME</td>
-    <td>OTHER NAMES </td>
-    <td>DATE OF BIRTH</td>
-    <td>HEIGHT</td>
-    <td>WEIGHT</td>
-    <td>PRIOR ISSUES</td>
-    <td>KNOWN ALLERGIES</td>
+<tr bgcolor = 'GREEN'>
+    <td><font color = 'WHITE'>PERSON ID</font></td>
+    <td><font color = 'WHITE'>FIRST NAME</font></td>
+    <td><font color = 'WHITE'>LAST NAME</font></td>
+    <td><font color = 'WHITE'>OTHER NAMES </font></td>
+    <td><font color = 'WHITE'>DATE OF BIRTH</font></td>
+    <td><font color = 'WHITE'>HEIGHT</font></td>
+    <td><font color = 'WHITE'>WEIGHT</font></td>
+    <td><font color = 'WHITE'>PRIOR ISSUES</font></td>
+    <td><font color = 'WHITE'>KNOWN ALLERGIES</font></td>
 </tr>";
 
 
 
 //FETCHING AND LOOP THROUGH THE DATABASE TO DISPLAY ALL USERS
 while ($row = $obj -> fetch()){
-    if ($row['PID'] % 2 == 0){
-    echo "<tr bgcolor = 'RED'>
-            <td><font color = 'WHITE'>{$row['PID']}</font></td>
-            <td><font color = 'WHITE'>{$row['FirstName']}</font></font></td>
-            <td><font color = 'WHITE'>{$row['LastName']}</font></td>
-            <td><font color = 'WHITE'>{$row['OtherNames']}</font></td>
-            <td><font color = 'WHITE'>{$row['DateOfBirth']}</font></td>
-            <td><font color = 'WHITE'>{$row['Height']}</font></td>
-            <td><font color = 'WHITE'>{$row['Weight']}</font></td>
-            <td><font color = 'WHITE'>{$row['PriorIssues']}</font></td>
-            <td><font color = 'WHITE'>{$row['KnownAllergies']}</font></td>
+   
+    echo "<tr>
+            <td>{$row['PID']}</td>
+            <td>{$row['FirstName']}</td>
+            <td>{$row['LastName']}</td>
+            <td>{$row['OtherNames']}</td>
+            <td>{$row['DateOfBirth']}</td>
+            <td>{$row['Height']}</td>
+            <td>{$row['Weight']}</td>
+            <td>{$row['PriorIssues']}</td>
+            <td>{$row['KnownAllergies']}</td>
             
         </tr>";
        
-} 
+ 
     
 
     
@@ -111,6 +117,7 @@ while ($row = $obj -> fetch()){
 
 
 echo "</table>";
+    }
 }
                         
                         
