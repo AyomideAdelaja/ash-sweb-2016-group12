@@ -38,6 +38,9 @@ body{
 .text-red{
 	color: rgba(255,0,0,0.8);
 }
+.text-green{
+	color: rgba(0,255,0,0.8);
+}
 .left{
 	float: left !important;
 }
@@ -430,7 +433,7 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
     display: none;
     /*position: absolute;*/
     /*top: 75px;*/
-    margin-top: 5%;
+    margin-top: 3%;
     left: 220px;
     /*background-color: #f9f9f9;*/
     background-color: rgba(0,0,0,0.2);
@@ -453,12 +456,40 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 }
 
 .stat-block{
-	background: rgba(255,255,255,0.4);
-	height: auto;
+	/*background: rgba(255,255,255,0.4);*/
+	background: rgba(50,138,145,1);
+	height:100%;
 	width: 100%;
 	float: left;
+	color: #D6E6E5;
 }
 .stat-num{
+	text-align: center;
+	font-size: 160px;
+	font-family: helvetica,sans-serif;
+}
+
+#stat-num-d{
+	text-align: center;
+	font-size: 160px;
+	font-family: helvetica,sans-serif;
+}
+#stat-num-w{
+	text-align: center;
+	font-size: 160px;
+	font-family: helvetica,sans-serif;
+}
+#stat-num-m{
+	text-align: center;
+	font-size: 160px;
+	font-family: helvetica,sans-serif;
+}
+#stat-num-y{
+	text-align: center;
+	font-size: 160px;
+	font-family: helvetica,sans-serif;
+}
+#stat-num-t{
 	text-align: center;
 	font-size: 160px;
 	font-family: helvetica,sans-serif;
@@ -470,6 +501,8 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 .stat-title{
 	text-align: center;
 	font-size: 50px;
+
+	color: white;
 	/*font-family: helvetica, sans-serif;*/
 }
 /* Carousel code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
@@ -497,7 +530,7 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 }
 .active {
   /*height: 130px;*/
-  height: 35%;
+  height: 40%;
 }
 .active li {
   position: absolute;
@@ -525,4 +558,24 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 .offscreen {
   position: absolute;
   left: -2000px;
+}
+.prev{
+	background: rgba(255,255,255,0.3);
+	border: 0px transparent;
+	border-radius: 50%;
+	padding: 30px;
+	color: white;
+	margin-top: 9.5%;
+	margin-left: 2%;
+	font-size: 20px;
+}
+.next{
+	background: rgba(255,255,255,0.3);
+	border: 0px transparent;
+	border-radius: 50%;
+	padding: 30px;
+	color: white;
+	margin-top: 9.5%;
+	margin-right: 2%;
+	font-size: 20px;
 }

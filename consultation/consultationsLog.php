@@ -1,3 +1,11 @@
+<?php
+	//verify session
+	session_start();
+	$currentUser = "Not yet set";
+	if (!isset($_SESSION['username'])){
+		header('Location: index.php');
+	}
+?>
 <html>
 <head>
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -9,7 +17,7 @@
 	<div class="">
 		<div class="topbar theme-1">
 			<span class="left"><img id="home-logo" src="../images/login-title.png" alt=""></span>
-			<div class="left page-title"><span>Log of Consultations</span></div>
+			<div class="left page-title"><span>Log Of Consultations</span></div>
 			<div class="line"></div>
 		</div>
 		<div>
@@ -18,7 +26,7 @@
 					<ul>
 						<div class="line"></div>
 						<div class="mini-gap"></div>
-						<li><a href="../dashboard.html"><button class="sidebutton"><span>Dashboard</span></button></a></li>
+						<li><a href="../dashboard.php"><button class="sidebutton"><span>Dashboard</span></button></a></li>
 						<div class="mini-gap"></div>
 
 						<div class="line"></div>
@@ -26,13 +34,13 @@
 						<div class="mini-gap"></div>
 						
 						<li class="dropdown">
-							<a href="addConsultation.html">
+							<a href="addConsultation.php">
 								<button class="sidebutton sidebutton-active">Consultation</button>
 								<div class="dropdown-content">
-									<a href="addConsultation.html">
+									<a href="addConsultation.php">
 										<button class="sidebutton"><span>Add Consultation</span></button>
 									</a>
-									<a href="addConsultation.html">
+									<a href="consultationsLog.php">
 										<button class="sidebutton sidebutton-active"><span>Consultations Log</span></button>
 									</a>
 								</div>
@@ -46,13 +54,13 @@
 						<div class="mini-gap"></div>
 
 						<li class="dropdown">
-							<a href="addVisitSearch.html">
+							<a href="../patient/addPatient.php">
 								<button class="sidebutton">Patient</button>
 								<div class="dropdown-content">
-									<a href="addVisitSearch.html">
+									<a href="../patient/addPatient.php">
 										<button class="sidebutton"><span>Add Patient</span></button>
 									</a>
-									<a href="addVisitSearch.html">
+									<a href="../patient/patientsLog.php">
 										<button class="sidebutton"><span>Patients Log</span></button>
 									</a>
 								</div>
@@ -63,13 +71,13 @@
 						<div class="line"></div>
 
 						<div class="mini-gap"></div>
-						<li><a href="#"><button class="sidebutton"><span>Report</span></button></a></li>
+						<li><a href="../report/report.php"><button class="sidebutton"><span>Report</span></button></a></li>
 						<div class="mini-gap"></div>
 
 						<div class="line"></div>
 						
 						<div class="mini-gap"></div>
-						<li><a href="../index.html"><button class="sidebutton"><span>Log Out</span></button></a></li>
+						<li><a href="../logout.php"><button class="sidebutton"><span>Log Out</span></button></a></li>
 						<div class="mini-gap"></div>
 
 					</ul>

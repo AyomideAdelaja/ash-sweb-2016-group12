@@ -1,4 +1,5 @@
-/* Code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
+/* Code from 
+https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
 
 carousel = (function(){
   var box = document.querySelector('.carouselbox');
@@ -31,3 +32,74 @@ carousel = (function(){
   });
   navigate(0);
 })();
+
+function updateCountersComplete(xhr,status){
+  if (status != "success"){
+    // alert("Error while updating the counters");
+    return;
+  }
+  // alert(xhr.responseText{message});
+
+  var serverResponse=$.parseJSON(xhr.responseText);
+  var today ;
+  var week ;
+  var month ;
+  var year ;
+  var total ;
+  
+  if(serverResponse.result==0){
+    alert(serverResponse.message);  
+  } else {
+    today = document.getElementById('stat-num-d');
+    week = document.getElementById('stat-num-w');
+    month = document.getElementById('stat-num-m');
+    year = document.getElementById('stat-num-y');
+    total = document.getElementById('stat-num-t');
+
+    today.innerHTML=serverResponse.message.today;
+    week.innerHTML=serverResponse.message.week;
+    month.innerHTML=serverResponse.message.month;
+    year.innerHTML=serverResponse.message.year;
+    total.innerHTML=serverResponse.message.total;
+
+  }
+}
+
+function updateCountersJS(){
+  // alert("Counter is working!");
+  var ajaxUrl = "visitLogsAjax.php?cmd=1";
+  $.ajax(ajaxUrl,
+  {
+    async: true,
+    complete: updateCountersComplete
+  });
+}
+
+$(document).ready(function(){
+  updateCountersJS();
+  console.log("ready!");
+});
+// /**
+// *callback function for deleteRecord ajax call
+// */
+// function deleteRecordComplete(xhr,status){
+//   if(status!="success"){
+//     divStatus.innerHTML="error while deleteing a page";
+//     return;
+//   }
+//   divStatus.innerHTML=xhr.responseText;
+//   //write a code to delete the row from the HTML table
+// }
+// /**
+// *makes an AJAX call to the server
+// */
+// function deleteRecord(recordID){
+//   var ajaxPageUrl="usersajax.php?cmd=1&uc="+recordID;
+//   $.ajax(ajaxPageUrl,
+// {async:true,complete:deleteRecordComplete } 
+//   );
+// }
+// var currentObject = null;
+
+
+

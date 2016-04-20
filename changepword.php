@@ -1,3 +1,11 @@
+<?php
+	//verify session
+	session_start();
+	$currentUser = "Not yet set";
+	if (!isset($_SESSION['username'])){
+		header('Location: index.php');
+	}
+?>
 <html>
 <head>
 	<link rel="stylesheet" href="css/style2.css">
@@ -52,7 +60,7 @@
 		<div class="line"></div>
 		<div class="gap"></div>
 
-		<a href="login.html">
+		<a href="index.php">
 			<button class="button theme-1 text-theme-4">Go Back To Log In</button>
 		</a>
 		<div class="gap"></div>
