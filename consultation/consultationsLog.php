@@ -118,7 +118,7 @@
 										echo "	<td> ".$result['VID']."</td>";
 										echo "	<td> ".$result['FirstName'].", ".$result['LastName']." </td>";
 										echo "	<td> ".$result['DateOfVisit']."</td>";
-										echo "	<td><button onclick='div_show()' class='table-button'>View2</button></td>";
+										echo "	<td><button onclick='viewConsultationJS(".$result['VID'].")' class='table-button'>View</button></td>";
 										echo "	<td><button onclick='editConsultationJS(".$result['VID'].")' class='table-button'>Edit</button></td>";
 										echo "</tr>";
 									}
@@ -142,47 +142,47 @@
 			<div class="mini-gap"></div>
 
 			<span class="popup-input-name">Visit ID</span>
-			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+			<input id="vid" type="text" placeholder="Visit ID" class="popup-input" disabled="true">
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Visit Date</span>
-			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+			<input id="vd" type="text" placeholder="Visit Date" class="popup-input" disabled="true">
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Patient's Name</span>
-			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+			<input id="pname" type="text" placeholder="Patient's Name" class="popup-input" disabled="true">
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Nurse's Name</span>
-			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+			<input id="nname" type="text" placeholder="Nurse's Name" class="popup-input" disabled="true">
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Diagnosis</span>
-			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+			<input id="dia" type="text" placeholder="Diagnosis" class="popup-input" disabled="true">
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Observations</span>
-			<textarea class="t-area" placeholder="Observations" name="prescripts" form="usrform" disabled="true"></textarea>
+			<textarea id="obs" class="t-area" placeholder="Observations" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Vitals Info</span>
-			<textarea class="t-area" placeholder="Vitals Info" name="prescripts" form="usrform" disabled="true"></textarea>
+			<textarea id="vit" class="t-area" placeholder="Vitals Info" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Symptoms</span>
-			<textarea class="t-area" placeholder="Symptoms" name="prescripts" form="usrform" disabled="true"></textarea>
+			<textarea id="sym" class="t-area" placeholder="Symptoms" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Prescriptions</span>
-			<textarea class="t-area" placeholder="Prescriptions" name="prescripts" form="usrform" disabled="true"></textarea>
+			<textarea id="pres" class="t-area" placeholder="Prescriptions" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 

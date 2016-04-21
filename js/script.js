@@ -87,11 +87,21 @@ function viewConsultationJSComplete(xhr, status){
   }
   // alert("Completed");
   var serverResponse=$.parseJSON(xhr.responseText);
-  alert(serverResponse.message);
+  // alert(serverResponse.message);
+  document.getElementById('vid').value = serverResponse.message.VID;
+  document.getElementById('vd').value = serverResponse.message.DateOfVisit;
+  document.getElementById('pname').value = serverResponse.message.PatientFirstName + " " + serverResponse.message.PatientLastName;
+  document.getElementById('nname').value = serverResponse.message.UserFirstName + " " + serverResponse.message.UserLastName ;
+  document.getElementById('dia').value = serverResponse.message.Diagnosis;
+  document.getElementById('obs').value = serverResponse.message.Observations;
+  document.getElementById('vit').value = serverResponse.message.VitalsInfo;
+  document.getElementById('sym').value = serverResponse.message.Symptoms;
+  document.getElementById('pres').value = serverResponse.message.Prescriptions;
+  div_show();
 }
 
 function viewConsultationJS(VID){
-  alert("View Your Consultations here with id "+ VID);
+  // alert("View Your Consultations here with id "+ VID);
 
   var ajaxUrl = "../visitLogsAjax.php?cmd=2&vid="+VID;
   $.ajax(ajaxUrl,
