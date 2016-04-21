@@ -1,11 +1,3 @@
-<?php
-	//verify session
-	session_start();
-	$currentUser = "Not yet set";
-	if (!isset($_SESSION['username'])){
-		header('Location: index.php');
-	}
-?>
 <html>
 <head>
 	<link rel="stylesheet" href="css/style2.css">

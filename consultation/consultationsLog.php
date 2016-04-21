@@ -96,87 +96,102 @@
 								<td><b>Date Of Visit</b></td>
 								<td colspan="2"><b>Options</b></td>
 							</tr>
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
+							
+							<?php
+					//			echo 'Getting the fisrt user \n';
+								include_once "consultations.php";
+								$consultObj = new consultations();
+								$row = $consultObj->getAllConsultations();
+								$result = $consultObj->fetch();
+					//			print_r($result);
+								$counter = 0;
+								while ($result!=false) {
+									if($counter % 2 == 0){
+										echo "<tr class='theme-2 text-theme-4' width='100%'>";
+										echo "	<td> ".$result['VID']."</td>";
+										echo "	<td> ".$result['FirstName'].", ".$result['LastName']." </td>";
+										echo "	<td> ".$result['DateOfVisit']."</td>";
+										echo "	<td><button onclick='div_show()' class='table-button'>View</button></td>";
+										echo "	<td><button onclick='editConsultationJS(".$result['VID'].")' class='table-button'>Edit</button></td>";
+										echo "</tr>";
+									} else {
+										echo "<tr class='theme-1 text-theme-4' width='100%'>";
+										echo "	<td> ".$result['VID']."</td>";
+										echo "	<td> ".$result['FirstName'].", ".$result['LastName']." </td>";
+										echo "	<td> ".$result['DateOfVisit']."</td>";
+										echo "	<td><button onclick='div_show()' class='table-button'>View</button></td>";
+										echo "	<td><button onclick='editConsultationJS(".$result['VID'].")' class='table-button'>Edit</button></td>";
+										echo "</tr>";
+									}
+									$counter = $counter + 1;
+									$result = $consultObj->fetch();
+								}
+								?>
 						</table>
+						
 					</div>
 				</fieldset>
 				</div>
 			</div>
 		</div>
 	</div>
+                 <!-- P O P U P   S E C T I O N -->
+
+	<div id="popup-div"> <!-- Popup content for viewing -->
+		<fieldset class="popup-container">
+			<legend><h2 class="text-center text-theme-4">View Consultations Details</h2></legend>
+			<div class="mini-gap"></div>
+
+			<span class="popup-input-name">Visit ID</span>
+			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Visit Date</span>
+			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Patient's Name</span>
+			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Nurse's Name</span>
+			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Diagnosis</span>
+			<input type="text" placeholder="Visit ID" class="popup-input" disabled="true">
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Observartions</span>
+			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Vitals Info</span>
+			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Symptoms</span>
+			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+
+			<div class="gap"></div>
+
+			<span class="popup-input-name">Prescriptions</span>
+			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+
+			<div class="gap"></div>
+
+			<button onclick="div_hide()" class="button theme-1 text-theme-4">Close</button>
+		</fieldset>
+
+		</div>
+
 </body>
 <script src="../js/script.js"></script>
 </html>

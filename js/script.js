@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  updateCountersJS();
+  console.log("ready!");
+});
+
 /* Code from 
 https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
 
@@ -75,10 +80,23 @@ function updateCountersJS(){
   });
 }
 
-$(document).ready(function(){
-  updateCountersJS();
-  console.log("ready!");
-});
+function viewConsultationJS(VID){
+  alert("View Your Consultations here with id "+ VID);
+}
+
+function editConsultationJS(VID){
+  alert("Edit Your Consultations here with id "+ VID);
+}
+
+//Function To Display Popup
+function div_show() {
+document.getElementById('popup-div').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+document.getElementById('popup-div').style.display = "none";
+}
+
 // /**
 // *callback function for deleteRecord ajax call
 // */

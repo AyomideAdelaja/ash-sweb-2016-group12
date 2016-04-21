@@ -41,7 +41,7 @@
 				<input type="text" name="username" value="<?php echo $username;?>" placeholder="Username" class="input">
 				<div class="gap"></div>
 				<input type="password" name="password" value="<?php echo $userpass;?>" placeholder="Password" class="input">
-				<p class="forgot"><a href="changepword.html" class="text-theme-4">Forgot your password?</a></p>
+				<p class="forgot"><a href="changepword.php" class="text-theme-4">Forgot your password?</a></p>
 				<div class="gap"></div>
 				
 				<input type="submit" value="Login" class="button"> 
