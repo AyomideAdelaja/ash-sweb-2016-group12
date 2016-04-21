@@ -93,6 +93,26 @@ class visitLogs extends adb{
 		return $row;
 	}
 
+	/**
+	*gets consultations records
+	*@return boolean true if successful, else false
+	*/
+	function getAllConsultations(){
+		$strQuery="SELECT VisitLogs.VID, PersonInfo.FirstName, PersonInfo.LastName, VisitLogs.DateOfVisit FROM VisitLogs INNER JOIN PersonInfo ON VisitLogs.PID = PersonInfo.PID";
+
+		return $this->query($strQuery); //don't fetch before returning
+	}
+
+	/**
+	*gets consultation record for given id
+	*@return boolean true if successful, else false
+	*/
+	function getConsultationById($vid){
+		$strQuery="SELECT VisitLogs.VID, PersonInfo.FirstName AS PatientFirstName, PersonInfo.LastName AS PatientLastName, UsersInfo.FirstName AS UserFirstName, UsersInfo.LastName AS UserLastName, VisitLogs.DateOfVisit, VisitLogs.Observations, Diagnosis.DiagnosisName AS Diagnosis, VisitLogs.VitalsInfo, VisitLogs.Symptoms, VisitLogs.Prescriptions FROM VisitLogs INNER JOIN PersonInfo ON VisitLogs.PID = PersonInfo.PID INNER JOIN UsersInfo ON VisitLogs.UID = UsersInfo.UID INNER JOIN Diagnosis ON VisitLogs.DID = Diagnosis.DID WHERE VisitLogs.VID = ".$vid;
+
+		return $this->query($strQuery); //don't fetch before returning
+	}
+
 	/*
 	DAILY COUNT
 

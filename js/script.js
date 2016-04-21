@@ -80,8 +80,25 @@ function updateCountersJS(){
   });
 }
 
+function viewConsultationJSComplete(xhr, status){
+  if(status != "success"){
+    alert("not successful");
+    return;
+  }
+  // alert("Completed");
+  var serverResponse=$.parseJSON(xhr.responseText);
+  alert(serverResponse.message);
+}
+
 function viewConsultationJS(VID){
   alert("View Your Consultations here with id "+ VID);
+
+  var ajaxUrl = "../visitLogsAjax.php?cmd=2&vid="+VID;
+  $.ajax(ajaxUrl,
+  {
+    async: true,
+    complete: viewConsultationJSComplete
+  });
 }
 
 function editConsultationJS(VID){
@@ -92,6 +109,7 @@ function editConsultationJS(VID){
 function div_show() {
 document.getElementById('popup-div').style.display = "block";
 }
+
 //Function to Hide Popup
 function div_hide(){
 document.getElementById('popup-div').style.display = "none";

@@ -8,7 +8,6 @@
 ?>
 <html>
 <head>
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/style2.css">
 	<meta charset="UTF-8">
 	<title>Consultations Log</title>
@@ -99,8 +98,8 @@
 							
 							<?php
 					//			echo 'Getting the fisrt user \n';
-								include_once "consultations.php";
-								$consultObj = new consultations();
+								include_once "../visitLogs.php";
+								$consultObj = new visitLogs();
 								$row = $consultObj->getAllConsultations();
 								$result = $consultObj->fetch();
 					//			print_r($result);
@@ -111,7 +110,7 @@
 										echo "	<td> ".$result['VID']."</td>";
 										echo "	<td> ".$result['FirstName'].", ".$result['LastName']." </td>";
 										echo "	<td> ".$result['DateOfVisit']."</td>";
-										echo "	<td><button onclick='div_show()' class='table-button'>View</button></td>";
+										echo "	<td><button onclick='viewConsultationJS(".$result['VID'].")' class='table-button'>View</button></td>";
 										echo "	<td><button onclick='editConsultationJS(".$result['VID'].")' class='table-button'>Edit</button></td>";
 										echo "</tr>";
 									} else {
@@ -119,7 +118,7 @@
 										echo "	<td> ".$result['VID']."</td>";
 										echo "	<td> ".$result['FirstName'].", ".$result['LastName']." </td>";
 										echo "	<td> ".$result['DateOfVisit']."</td>";
-										echo "	<td><button onclick='div_show()' class='table-button'>View</button></td>";
+										echo "	<td><button onclick='div_show()' class='table-button'>View2</button></td>";
 										echo "	<td><button onclick='editConsultationJS(".$result['VID'].")' class='table-button'>Edit</button></td>";
 										echo "</tr>";
 									}
@@ -167,23 +166,23 @@
 
 			<div class="gap"></div>
 
-			<span class="popup-input-name">Observartions</span>
-			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+			<span class="popup-input-name">Observations</span>
+			<textarea class="t-area" placeholder="Observations" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Vitals Info</span>
-			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+			<textarea class="t-area" placeholder="Vitals Info" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Symptoms</span>
-			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+			<textarea class="t-area" placeholder="Symptoms" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
 			<span class="popup-input-name">Prescriptions</span>
-			<textarea class="t-area" placeholder="Prior Issues" name="prescripts" form="usrform"></textarea>
+			<textarea class="t-area" placeholder="Prescriptions" name="prescripts" form="usrform" disabled="true"></textarea>
 
 			<div class="gap"></div>
 
@@ -193,5 +192,6 @@
 		</div>
 
 </body>
+<script type="text/javascript" src="../js/jquery-1.12.1.js"></script>
 <script src="../js/script.js"></script>
 </html>

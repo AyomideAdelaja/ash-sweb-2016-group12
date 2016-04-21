@@ -11,7 +11,7 @@
 			updateCountersAJAX(); //if cmd=1 call the updateCounter
 			break;
 		case 2:
-			changeUserStatus();	//if cmd=2 the change status
+			getConsultationByIdAJAX();	//if cmd=2 the change status
 			break;
 		case 3:
 			changeUsername();	//if cmd=3 the username changes
@@ -60,5 +60,28 @@
 		// echo '{"result":1,"user":';
 		// 	echo json_encode($row);
 		// echo '}';
+	}
+
+	function getConsultationByIdAJAX(){
+		//check if there is a visit id
+		if(!isset($_REQUEST['vid'])){
+			echo '{"result":0,"message":"visit id is not correct"}';	
+			exit();
+		}
+		
+		$visitID=$_REQUEST['vid'];
+
+		include("visitLogs.php");
+		$logObj = new visitLogs();
+
+		$row = $logObj->getConsultationById($visitID);
+		if($row){
+			$result = $logObj->fetch();
+			echo '{"result":1,"message":';
+				echo json_encode($result);
+			echo '}';
+		} else{
+			echo '{"result":0,"message":"visit id does not exist in database"}';	
+		}
 	}
 ?>
