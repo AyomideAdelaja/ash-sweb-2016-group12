@@ -8,7 +8,16 @@
         }
         
         function personinfo($id){
-            $strQuery = "SELECT * FROM personinfo WHERE PID = '$id'";
+            $strQuery = "SELECT FirstName, LastName, OtherNames FROM personinfo WHERE PID = '$id'";
+            
+            return $this -> query($strQuery);
+        }
+        
+        
+        function viewPatients(){
+            $strQuery = "SELECT v.VID, v.DateOfVisit, CONCAT(p.FirstName,' ',p.LastName) AS PatientName
+FROM personinfo p INNER JOIN visitlogs v
+ON p.PID = v.PID";
             
             return $this -> query($strQuery);
         }
