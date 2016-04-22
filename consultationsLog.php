@@ -11,7 +11,38 @@
 	
            
             
+                     		function viewPatientComplete(xhr, status){
+                if (!status = "success"){
+                    divStatus.innerHTML = "ERROR WHILE VIEWING PAGE";
+                    return;
+                }
+                divStatus.innerHTML = xhr.responseText;
+                //a code to view patients
+                
+                
+            }
             
+            
+            function viewPatient(ID){
+                var ajaxPageUrl = "patientsajax.php?cmd=2&uc="+ID;
+                
+                $.ajax(ajaxPageUrl, {
+                    async: true, complete: viewPatientComplete
+                })
+            
+            }
+            
+              var ID = $("#id").val();
+            
+            
+            function viewAllPatients(){
+                var ajaxPageUrl = "usersajax.php?cmd=2";
+                
+                $.ajax(ajaxPageUrl, {
+                    async: true, complete: viewPatientComplete
+                })
+            
+            }
             
             
             
