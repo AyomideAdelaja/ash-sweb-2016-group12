@@ -1,3 +1,6 @@
+/*Priscilla Owusuah-Bempah
+88692016*/
+
 
 CREATE TABLE StatusInfo(
 StatusID INT AUTO_INCREMENT NOT NULL,
