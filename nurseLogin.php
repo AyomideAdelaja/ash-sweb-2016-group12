@@ -1,20 +1,49 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="css/style2.css">
+		<meta charset="UTF-8">
 		<title>Login</title>
-		<link rel="stylesheet" href="css/style.css">
-		<script>
-			<!--add validation js script here
+		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+		<script type="text/javascript">
+			/**
+			*callback function for nurseLogin ajax call
+			*/
+			function nurseLoginComplete(xhr){
+				
+			}
+			function nurseLogin(n_id,n_pword){
+				var ajaxPageUrl="nurseLogin.php?id="+n_id+"&password="+n_pword;
+				$.ajax(ajaxPageUrl,
+					{async:true,complete:nurseLoginComplete	}	
+				);
+			}
 		</script>
 	</head>
-	<body>
-		<table>
-			<tr>
-				<td colspan="2" id="pageheader">
-					<!--Login--!>
-				</td>
-			</tr>
-			
+	<body id="grad2">
+
+		<div class="login-container">
+			<!-- <span class="left"><img id="login-logo" src="images/login-title.png" alt=""></span> -->
+			<span class="left"><img id="login-logo" src="images/AshesiTransparent.png" alt=""></span>
+			<p class="logo-name"><b>Ashesi</b> Clinic</p>
+			<div class="line"></div>
+			<div class="gap"></div>
+			<!-- <div> -->
+		
+			<form action="" method="GET">
+				<div><input class="input" type="text" placeholder="User ID" name="id" /></div>
+				<div class="gap"></div>
+				<div><input class="input" type="password" placeholder="Password" name="password" />
+				<p class="forgot"><a href="changepword.html" class="text-theme-4">Forgot your password?</a></p>
+				<div class="gap"></div>
+				
+				<button class="button" type="submit">Log In</button>
+				</input>
+		</form>		
 <?php
+/**
+*Server code for nurse login
+*/
+
 			//initialize
 			$strStatusMessage ="Login Page";
 			
@@ -24,14 +53,13 @@
 				include_once("nurses.php");
 				//create new object of nurses
 				$obj=new nurses();
+				$r=$obj->loginNurse($id,$password);
+				$result=$obj->fetch();
 				//call the object's loginNurse method and check for error
-				if($obj->loginNurse($id,$password)!=false){
-					$r=$obj->loginNurse($id,$password);
-					echo $r;
-					$result=$obj->fetch();
+				if($result["username"]!=""){
 					echo "Welcome {$result["username"]}";
 					//Redirect to 
-					//header("Location:home.php");
+					header("Location:dashboard.php");
 					//exit();
 				}
 				else{
@@ -39,24 +67,15 @@
 				}
 
 			}
-?>
-					<div id="divStatus" class="status">
-						<?php echo  $strStatusMessage ;?>
-					</div>
-					<div id="divContent">
-						
-						<form action="" method="GET">
-			<div>Nurse ID: <input type="text" name="id" /></div>
-			<div>Password: <input type="password" name="password" />
-			<div>
-				
-				</select>
-			</div>
-			<input type="submit" value="Login">
-		</form>							
-					</div>
-				</td>
-			</tr>
-		</table>
+?>					
+			<div class="gap"></div>
+			<div class="line"></div>
+			<div class="gap"></div>
+			<div class="gap"></div>
+			<center>
+				<h4 class="text-theme-4">© 2016 Ashesi Clinic System, Inc</h4>
+			</center>
+		<!-- </div> -->
+	</div>	
 	</body>
 </html>	
