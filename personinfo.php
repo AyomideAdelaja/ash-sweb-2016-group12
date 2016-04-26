@@ -25,7 +25,7 @@ class personinfo extends adb{
     /*This function takes in the entered parameters and enters them in the database*/
 	function addPerson($personid,$firstname,$lastname,$othernames,$dateofbirth,$height,$weight,$priorissues,
 						$knownallergies){
-		$strQuery="insert into PersonInfo set
+		$strQuery="insert into ash_sweb_person set
 						PID='$personid',
 						FirstName='$firstname',
 						LastName='$lastname',

@@ -83,18 +83,18 @@
 					<input id="id" type="text" placeholder="Person ID" class="half-input">
 
 					<input id="fn" type="text" placeholder="First Name" class="half-input">
-
-					<input id="ln" type="text" placeholder="Last Name" class="half-input">
 					
 					<div class="gap"></div>
 
 					<input id="on" type="text" placeholder="Other Names" class="half-input">
 
-					<input id="dob" type="date" placeholder="Date of Birth" class="half-input">
+					<input id="ln" type="text" placeholder="Last Name" class="half-input">
 
 					<div class="gap"></div>
 
-					<select  id="sta" type="select" name="status" class="input">
+					<input id="dob" type="date" placeholder="Date of Birth" class="half-input">
+
+					<select  id="sta" type="select" name="status" class="half-input">
 						<option value = "1"> Student </option>
 						<option value = "2"> Faculty </option>
 					</select>
