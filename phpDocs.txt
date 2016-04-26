@@ -1,5 +1,0 @@
-copy the phpDocumentor.phar file into the folder 
-
-open cmd in the directory with files
-
-php phpDocumentor.phar -f users.php -t docs

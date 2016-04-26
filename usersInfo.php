@@ -6,6 +6,8 @@ class usersInfo extends adb{
 	}
 	
 	/**
+	*@author Youssouf da Silva
+	*usersInfo class
 	*Searches for user by username, fristname, lastname 
 	*@param string user user's username
 	*@return array of the user if successful, else null
@@ -16,8 +18,8 @@ class usersInfo extends adb{
 			$filter=" WHERE `Username` LIKE '$user'";
 		} 
 
-		$strQuery="SELECT * FROM `ash-sweb-group12-2016`.`UsersInfo`";
-		
+		$strQuery="SELECT * FROM ash_sweb_users";
+
 		if($filter!=false){
 			$strQuery = $strQuery . $filter;
 		}
@@ -29,17 +31,6 @@ class usersInfo extends adb{
 		
 		return $row;
 	}
-	
-	/*
-	This is a test code
-	$obj=new usersInfo();
-	if(!$obj->query("SELECT * FROM `ash-sweb-group12-2016`.`UsersInfo`"))
-	{
-		echo "error";
-		exit();
-	}
-	print_r($obj->fetch());
-	*/
 	
 }
 ?>
