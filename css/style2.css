@@ -38,9 +38,12 @@ body{
 .text-red{
 	color: rgba(255,0,0,0.8);
 }
+<<<<<<< HEAD
 .text-green{
 	color: rgba(0,255,0,0.8);
 }
+=======
+>>>>>>> origin/addPersonAjax
 .left{
 	float: left !important;
 }
@@ -180,6 +183,7 @@ body{
 	border-radius: 10px;
 	padding: 10px;
 }
+<<<<<<< HEAD
 .popup-container{
 	position: relative;
 	overflow: auto;
@@ -195,6 +199,8 @@ body{
 	border-radius: 10px;
 	padding: 10px;
 }
+=======
+>>>>>>> origin/addPersonAjax
 .addlog-container{
 	position: relative;
 	overflow: auto;
@@ -393,11 +399,14 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 	font-size: 26pt;
 	margin-bottom: 0;
 }
+<<<<<<< HEAD
 .page-user{
 	margin-top: 1.35%;
 	color: white;
 	font-size: 20pt;
 }
+=======
+>>>>>>> origin/addPersonAjax
 .addVisit{
 	margin: 3%;
 	width: 90%;
@@ -453,7 +462,11 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
     display: none;
     /*position: absolute;*/
     /*top: 75px;*/
+<<<<<<< HEAD
     margin-top: 3%;
+=======
+    margin-top: 5%;
+>>>>>>> origin/addPersonAjax
     left: 220px;
     /*background-color: #f9f9f9;*/
     background-color: rgba(0,0,0,0.2);
@@ -476,18 +489,26 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 }
 
 .stat-block{
+<<<<<<< HEAD
 	/*background: rgba(255,255,255,0.4);*/
 	background: rgba(50,138,145,1);
 	height:100%;
 	width: 100%;
 	float: left;
 	color: #D6E6E5;
+=======
+	background: rgba(255,255,255,0.4);
+	height: auto;
+	width: 100%;
+	float: left;
+>>>>>>> origin/addPersonAjax
 }
 .stat-num{
 	text-align: center;
 	font-size: 160px;
 	font-family: helvetica,sans-serif;
 }
+<<<<<<< HEAD
 
 #stat-num-d{
 	text-align: center;
@@ -514,6 +535,8 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 	font-size: 160px;
 	font-family: helvetica,sans-serif;
 }
+=======
+>>>>>>> origin/addPersonAjax
 .stat-des{
 	text-align: center;
 	font-size: 40px;
@@ -521,8 +544,11 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 .stat-title{
 	text-align: center;
 	font-size: 50px;
+<<<<<<< HEAD
 
 	color: white;
+=======
+>>>>>>> origin/addPersonAjax
 	/*font-family: helvetica, sans-serif;*/
 }
 /* Carousel code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
@@ -550,7 +576,11 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
 }
 .active {
   /*height: 130px;*/
+<<<<<<< HEAD
   height: 40%;
+=======
+  height: 35%;
+>>>>>>> origin/addPersonAjax
 }
 .active li {
   position: absolute;
@@ -579,6 +609,7 @@ select,textarea,input,input.other:-moz-placeholder { font-size: 18px; line-heigh
   position: absolute;
   left: -2000px;
 }
+<<<<<<< HEAD
 .prev{
 	background: rgba(255,255,255,0.3);
 	border: 0px transparent;
@@ -630,3 +661,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#328a91', end
 	height: 40px !important;
 	float: right;
 }
+=======
+>>>>>>> origin/addPersonAjax
