@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var currentUsername = document.getElementById('cur_user_id').innerHTML;
 
 $(document).ready(function(){
@@ -6,11 +6,7 @@ $(document).ready(function(){
   console.log("ready!");
 });
 
-/* Code from 
-https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
-=======
 /* Code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
->>>>>>> origin/addPersonAjax
 
 carousel = (function(){
   var box = document.querySelector('.carouselbox');
@@ -42,7 +38,7 @@ carousel = (function(){
     navigate(-1);
   });
   navigate(0);
-<<<<<<< HEAD
+
 })();
 
 
@@ -153,10 +149,3 @@ document.getElementById('popup-div').style.display = "block";
 function div_hide(){
 document.getElementById('popup-div').style.display = "none";
 }
-
-
-
-
-=======
-})();
->>>>>>> origin/addPersonAjax
