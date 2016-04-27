@@ -15,6 +15,7 @@ class personinfo extends adb{
 	*@param string lastname last name
 	*@param string othernames other name
 	*@param string dateofbirth date of birth
+	*@param int status status of the patient
 	*@param int height height of the patient
 	*@param int height weight of the patient
 	*@param string priorissues prior issues of the person
@@ -23,7 +24,7 @@ class personinfo extends adb{
 	*/
 
     /*This function takes in the entered parameters and enters them in the database*/
-	function addPerson($personid,$firstname,$lastname,$othernames,$dateofbirth,$height,$weight,$priorissues,
+	function addPerson($personid,$firstname,$lastname,$othernames,$dateofbirth,$status,$height,$weight,$priorissues,
 						$knownallergies){
 		$strQuery="insert into ash_sweb_person set
 						PID='$personid',
@@ -31,6 +32,7 @@ class personinfo extends adb{
 						LastName='$lastname',
 						OtherNames='$othernames',
 						DateOfBirth='$dateofbirth',
+						StatusID='$status',
 						Height='$height',
 						Weight='$weight',
 						PriorIssues='$priorissues',

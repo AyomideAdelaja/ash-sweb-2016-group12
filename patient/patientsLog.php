@@ -11,13 +11,19 @@
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/style2.css">
 	<meta charset="UTF-8">
-	<title>Patients Log</title>
+	<title>Report</title>
+	<script>
+		function notify(){
+			alert("This feature has not been implemanted yet!");
+			alert("Please contact the system's administrator!!");
+		}
+	</script>
 </head>
 <body id="grad2">
 	<div class="">
 		<div class="topbar theme-1">
 			<span class="left"><img id="home-logo" src="../images/login-title.png" alt=""></span>
-			<div class="left page-title"><span>Log of Patients</span></div>
+			<div class="left page-title"><span>Patients Log</span></div>
 			<div class="page-user right">
 				<span class="left">Current User: "</span> 
 				<div class="left" id="cur_user"><?php echo $_SESSION['username'];?></div>
@@ -65,7 +71,7 @@
 									<a href="addPatient.php">
 										<button class="sidebutton"><span>Add Patient</span></button>
 									</a>
-									<a href="patientsLog.php">
+									<a href="#">
 										<button class="sidebutton sidebutton-active"><span>Patients Log</span></button>
 									</a>
 								</div>
@@ -88,96 +94,7 @@
 				</center>
 			</div>
 			<div class="contentbar">
-			<br><br>
-				<div class="listlog-container overflow">
-				<fieldset class="inner-listlog-container overflow">
-					<legend><h3 class="text-center text-theme-4">Consultation Log</h3></legend>
-					<div class="">
-						<table class="logtable" border="1">
-							<tr class="theme-4">
-								<td><b>Visit Log</b></td>
-								<td><b>Patient Name</b></td>
-								<td><b>Date Of Visit</b></td>
-								<td colspan="2"><b>Options</b></td>
-							</tr>
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-
-							<tr class="theme-2 text-theme-4">
-								<td>1</td>
-								<td>Youssouf da Silva</td>
-								<td>01-01-2015</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-							<tr class="theme-1 text-theme-4">
-								<td>2</td>
-								<td>Enyo Demanya</td>
-								<td>12-04-2016</td>
-								<td><button class="table-button">View</button></td>
-								<td><button class="table-button">Edit</button></td>
-							</tr>
-						</table>
-					</div>
-				</fieldset>
-				</div>
+				<h3>Sorry! This Page Is Still Under Construction.</h3>
 			</div>
 		</div>
 	</div>

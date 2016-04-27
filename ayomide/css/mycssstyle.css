@@ -1,0 +1,54 @@
+body{
+	background: white;
+}
+h1{
+	color: white;
+	background: #282829;
+	padding: 20px;
+}
+nav{
+	line-height: 40px;
+	background: #282829;
+	float: left;
+	width: 200px;
+	height: 100%;
+	padding: 2px;
+	text-align: center;
+	border: groove;
+	border-color: black;
+	font-size: 20px;
+	color: white;
+}
+fieldset{
+	padding: 10px;
+	/*margin: 2px;*/
+	border: none;
+}
+button{
+	background: #282829;
+	text-align: center;
+	color: white;
+	border: none;
+	width: 60px;
+	height: 30px;
+}
+input{
+	border-radius: 2px;
+	border-style: groove;
+}
+textarea{
+	border-radius: 2px;
+	border-style: groove;
+}
+#demac{
+	border-top: groove;
+}
+.navdiv{
+	border-top: groove;
+	border-color: black;
+}
+table,th,td,tr{
+	border: solid;
+	border-spacing: 0px;
+	border-width: 1px;
+}

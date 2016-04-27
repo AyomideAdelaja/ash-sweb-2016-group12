@@ -1,12 +1,10 @@
-
-var currentUsername = document.getElementById('cur_user_id').innerHTML;
-
 $(document).ready(function(){
   updateCountersJS();
   console.log("ready!");
 });
 
-/* Code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
+/* Code from 
+https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
 
 carousel = (function(){
   var box = document.querySelector('.carouselbox');
@@ -38,13 +36,7 @@ carousel = (function(){
     navigate(-1);
   });
   navigate(0);
-
 })();
-
-
-/** 
-* Function To manage response from the server for updating the count of consultations
-*/
 
 function updateCountersComplete(xhr,status){
   if (status != "success"){
@@ -78,13 +70,9 @@ function updateCountersComplete(xhr,status){
   }
 }
 
-/** 
-* Function To update the count of consultation given the current user's id
-*/
 function updateCountersJS(){
   // alert("Counter is working!");
-  var ajaxUrl = "visitLogsAjax.php?cmd=1&cu="+currentUsername;
-  // alert(ajaxUrl);
+  var ajaxUrl = "visitLogsAjax.php?cmd=1";
   $.ajax(ajaxUrl,
   {
     async: true,
@@ -92,9 +80,6 @@ function updateCountersJS(){
   });
 }
 
-/** 
-* Function To manage response from the server for viewing a consultation
-*/
 function viewConsultationJSComplete(xhr, status){
   if(status != "success"){
     alert("not successful");
@@ -115,9 +100,6 @@ function viewConsultationJSComplete(xhr, status){
   div_show();
 }
 
-/** 
-* Function To view a consultation given it's id
-*/
 function viewConsultationJS(VID){
   // alert("View Your Consultations here with id "+ VID);
 
@@ -129,79 +111,41 @@ function viewConsultationJS(VID){
   });
 }
 
-/** 
-* Function To edit a consultation given it's id
-*/
 function editConsultationJS(VID){
-  alert("Sorry, you cannot edit consultation "+ VID +" at the moment.");
+  alert("Edit Your Consultations here with id "+ VID);
 }
 
-/** 
-* Function To Display Popup
-*/
+//Function To Display Popup
 function div_show() {
 document.getElementById('popup-div').style.display = "block";
 }
 
-/** 
-* Function to Hide Popup
-*/
+//Function to Hide Popup
 function div_hide(){
 document.getElementById('popup-div').style.display = "none";
 }
 
-/* Ayomide's part*/
-//Script to get information from the form and send it to be added to the database
-function addVisit(){
-  var addAjaxRequest;
-
-  //Ensuring the input from the form is not empty, If so, the function is exited
-  if(document.getElementById('studId').value==null || document.getElementById('userId').value==null || document.getElementById('observation').value==null 
-    || document.getElementById('vitalinfo').value==null || document.getElementById('symptoms').value==null
-    || document.getElementById('prescripts').value==null){
-    alert("Put in correct input");
-    return;
-  }
-  //Putting the input from the form into variables
-  var pid=document.getElementById('studId').value;
-  var uid=document.getElementById('userId').value;
-  var dateofvisit=document.getElementById('visitdate').value;
-  var observe=document.getElementById('observation').value;
-  var vitals=document.getElementById('vitalinfo').value;
-  var symptoms=document.getElementById('symptoms').value;
-  var prescripts=document.getElementById('prescripts').value;
-
-  addAjaxRequest = new XMLHttpRequest();
-  // addAjaxRequest.onreadystatechange = function(){
-  //   if(addAjaxRequest.readyState == 4 && addAjaxRequest.status == 200){
-  //     //If the addition is successful, the table should be loaded again displaying the newly added information
-  //     loadTable();
-  //      //Displays the response message, either success or failure as an alert on the window
-  //     alert(addAjaxRequest.responseText);
-  //   }
-  // };
-
-  var ajaxUrl = "AddVisitAjax.php?cmd=1";
-  ajaxUrl += "&studId=" + pid + "&userId=" + uid + "&visitdate=" + dateofvisit + "&observation=" + observe + "&vitalinfo=" + vitals + "&symptoms=" + symptoms + "&prescripts=" + prescripts;
-  
-  alert(ajaxUrl);
-
-  addAjaxRequest.open("GET", ajaxUrl, true);
-  addAjaxRequest.send();
-
-}
-
-// // Script to load the table
-// function loadTable(){
-//   displayAjaxRequest = new XMLHttpRequest();
-//   displayAjaxRequest.onreadystatechange = function(){
-//     if(displayAjaxRequest.readyState == 4 && displayAjaxRequest.status == 200){
-//       document.getElementById("tableSpace").innerHTML = displayAjaxRequest.responseText;
-//     }
-//   };
-
-//   var ajaxUrl = "AddVisitAjax.php?cmd=2";
-  
-//   displayAjaxRequest.open("GET", ajaxUrl, true);
-//   displayAjaxRequest.send();
+// /**
+// *callback function for deleteRecord ajax call
+// */
+// function deleteRecordComplete(xhr,status){
+//   if(status!="success"){
+//     divStatus.innerHTML="error while deleteing a page";
+//     return;
+//   }
+//   divStatus.innerHTML=xhr.responseText;
+//   //write a code to delete the row from the HTML table
 // }
+// /**
+// *makes an AJAX call to the server
+// */
+// function deleteRecord(recordID){
+//   var ajaxPageUrl="usersajax.php?cmd=1&uc="+recordID;
+//   $.ajax(ajaxPageUrl,
+// {async:true,complete:deleteRecordComplete } 
+//   );
+// }
+// var currentObject = null;
+
+
+

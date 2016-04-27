@@ -5,19 +5,15 @@
 	if (!isset($_SESSION['username'])){
 		header('Location: ../index.php');
 	}
+	if (!isset($_SESSION['patientid'])){
+		header('Location: addConsultation.php');
+	}
 ?>
 <html>
 <head>
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/style2.css">
 	<meta charset="UTF-8">
 	<title>Save Consultation</title>
-	<script>
-		function notify(){
-			alert("This feature has not been implemanted yet!");
-			alert("Please contact the system's administrator!!");
-		}
-	</script>
 </head>
 <body id="grad2">
 	<div class="">
@@ -95,7 +91,22 @@
 				</center>
 			</div>
 			<div class="contentbar">
+
 				<fieldset class="addlog-container">
+					<legend><h2 class="text-center text-theme-4">Adding Consultation Details</h2></legend>
+					<div style="display: none;" action="" id="usrform">
+						Student ID:<input type="text" id="studId" value="<?php echo $_SESSION['patientid']; ?>">
+						User ID:<input type="text" id="userId" value="<?php echo $_SESSION['userid']; ?>">
+					</div>
+						Date:<input type="date" id="visitdate" form="usrform">
+						Observations noted: <br><textarea class="t-area" id="observation" form="usrform"></textarea><br>
+						Patient vitals: <br><textarea class="t-area" id="vitalinfo" form="usrform"></textarea><br>
+						Symptoms seen: <br><textarea class="t-area" id="symptoms" form="usrform"></textarea><br>
+						Prescriptions given: <br><textarea class="t-area" id="prescripts" form="usrform"></textarea><br><br>
+					<button type="button" onclick="addVisit()" form="usrform">Done</button>
+				</fieldset>
+
+				<!-- <fieldset class="addlog-container">
         			<legend><h3 class="text-center text-theme-4">Adding Visiting Information</h3></legend>
     					<form class="width-50per left addVisit">
         					Observations: <textarea class="t-area" name="observation" form="usrform"></textarea>
@@ -113,9 +124,9 @@
 							<div class="mini-gap"></div><br>
 	        				Prescriptions: <textarea class="t-area" name="prescripts" form="usrform"></textarea>
 	        				<div class="mini-gap"></div>
-		        			<button class="button" onclick="notify()">Save Visit</button>
+		        			<button class="button" onclick="addVisit()">Save Visit</button>
         				</form>
-        		</fieldset>
+        		</fieldset> -->
 			</div>
 		</div>
 	</div>

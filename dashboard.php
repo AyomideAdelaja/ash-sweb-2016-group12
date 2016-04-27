@@ -8,6 +8,7 @@
 		$r=$info_obj->getUserToLogIn($_SESSION['username']);
 		$currentUser = $r["FirstName"] . " " . $r["LastName"];
 		$currentUserID = $r["UID"];
+		$_SESSION['userid'] = $currentUserID;
 	} else {
 		header('Location: index.php');
 	}

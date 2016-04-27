@@ -66,7 +66,7 @@
 									<a href="addPatient.php">
 										<button class="sidebutton  sidebutton-active"><span>Add Patient</span></button>
 									</a>
-									<a href="#">
+									<a href="patientsLog.php">
 										<button class="sidebutton"><span>Patients Log</span></button>
 									</a>
 								</div>
@@ -109,8 +109,28 @@
 
 					<select  id="sta" type="select" name="status" class="half-input pad">
 						<option value = "0">-- Select Status --</option>
-						<option value = "1"> Student </option>
-						<option value = "2"> Faculty </option>
+					<?php
+						$mysqli = new mysqli('localhost','root','','ashesics_youssouf_dasilva');
+							
+						if($mysqli->connect_errno){
+							echo "Error connecting";
+							exit();
+						}
+						
+						$res = $mysqli->query("SELECT SID, StatusName from ash_sweb_status");
+						
+						if($res == false){
+							exit();
+						} else{
+							//fetch
+							$row = $res->fetch_assoc();
+							while($row){
+								echo "<option value=' {$row['SID']}'>{$row['StatusName']}</option>";
+								$row = $res->fetch_assoc();
+							}
+						}
+						$resrow = $res->fetch_assoc();
+					?>
 					</select>
 
 					<div class="gap"></div>

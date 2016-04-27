@@ -28,7 +28,7 @@
 					if($r['Password'] == $userpass){
 						$strStatusMessage ="<div class='text-green'>Correct Login Credentials!!</div>";
 						// session_start();
-						$_SESSION['username'] = $r['Username'];	
+						$_SESSION['username'] = $r['Username'];
 						// header('Location: dashboard.php');
 						echo '<script type="text/javascript">window.location.replace("dashboard.php");</script>';
 					} else {
