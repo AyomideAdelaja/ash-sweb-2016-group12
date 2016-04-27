@@ -1,3 +1,11 @@
+<?php
+	//verify session
+	session_start();
+	$currentUser = "Not yet set";
+	if (!isset($_SESSION['username'])){
+		header('Location: index.php');
+	}
+?>
 <html>
 	<head>	
 		<meta charset="UTF-8">
@@ -10,7 +18,12 @@
 		<div class="">
 		<div class="topbar theme-1">
 			<span class="left"><img id="home-logo" src="../images/login-title.png" alt=""></span>
-			<div class="left page-title"><span>Log of Consultations</span></div>
+			<div class="left page-title"><span>App Patient</span></div>
+			<div class="page-user right">
+				<span class="left">Current User: "</span> 
+				<div class="left" id="cur_user"><?php echo $_SESSION['username'];?></div>
+				<span class="left">"</span> 
+			</div>
 			<div class="line"></div>
 		</div>
 		<div>
@@ -19,7 +32,7 @@
 					<ul>
 						<div class="line"></div>
 						<div class="mini-gap"></div>
-						<li><a href="../dashboard.html"><button class="sidebutton"><span>Dashboard</span></button></a></li>
+						<li><a href="../dashboard.php"><button class="sidebutton"><span>Dashboard</span></button></a></li>
 						<div class="mini-gap"></div>
 
 						<div class="line"></div>
@@ -27,13 +40,13 @@
 						<div class="mini-gap"></div>
 						
 						<li class="dropdown">
-							<a href="addConsultation.html">
+							<a href="../consultation/addConsultation.php">
 								<button class="sidebutton">Consultation</button>
 								<div class="dropdown-content">
-									<a href="addConsultation.html">
+									<a href="../consultation/addConsultation.php">
 										<button class="sidebutton"><span>Add Consultation</span></button>
 									</a>
-									<a href="addConsultation.html">
+									<a href="../consultation/consultationsLog.php">
 										<button class="sidebutton"><span>Consultations Log</span></button>
 									</a>
 								</div>
@@ -47,13 +60,13 @@
 						<div class="mini-gap"></div>
 
 						<li class="dropdown">
-							<a href="addperson2ajax.php">
+							<a href="addPatient.php">
 								<button class="sidebutton  sidebutton-active">Patient</button>
 								<div class="dropdown-content">
-									<a href="addperson2ajax.php">
+									<a href="addPatient.php">
 										<button class="sidebutton  sidebutton-active"><span>Add Patient</span></button>
 									</a>
-									<a href="addperson2ajax.php">
+									<a href="#">
 										<button class="sidebutton"><span>Patients Log</span></button>
 									</a>
 								</div>
@@ -64,13 +77,13 @@
 						<div class="line"></div>
 
 						<div class="mini-gap"></div>
-						<li><a href="#"><button class="sidebutton"><span>Report</span></button></a></li>
+						<li><a href="../report/report.php"><button class="sidebutton"><span>Report</span></button></a></li>
 						<div class="mini-gap"></div>
 
 						<div class="line"></div>
 						
 						<div class="mini-gap"></div>
-						<li><a href="../index.html"><button class="sidebutton"><span>Log Out</span></button></a></li>
+						<li><a href="../logout.php"><button class="sidebutton"><span>Log Out</span></button></a></li>
 						<div class="mini-gap"></div>
 
 					</ul>
@@ -94,7 +107,8 @@
 
 					<input id="dob" type="date" placeholder="Date of Birth" class="half-input">
 
-					<select  id="sta" type="select" name="status" class="half-input">
+					<select  id="sta" type="select" name="status" class="half-input pad">
+						<option value = "0">-- Select Status --</option>
 						<option value = "1"> Student </option>
 						<option value = "2"> Faculty </option>
 					</select>

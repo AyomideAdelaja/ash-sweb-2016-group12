@@ -8,7 +8,7 @@
         }
         
         function personinfo($id){
-            $strQuery = "SELECT FirstName, LastName, OtherNames FROM personinfo WHERE PID = '$id'";
+            $strQuery = "SELECT FirstName, LastName, OtherNames FROM ash_sweb_person WHERE PID = '$id'";
             
             return $this -> query($strQuery);
         }
@@ -16,22 +16,11 @@
         
         function viewPatients(){
             $strQuery = "SELECT v.VID, v.DateOfVisit, CONCAT(p.FirstName,' ',p.LastName) AS PatientName
-FROM personinfo p INNER JOIN visitlogs v
+FROM ash_sweb_person p INNER JOIN ash_sweb_visit v
 ON p.PID = v.PID";
             
             return $this -> query($strQuery);
         }
     }
-
-/*
-$obj = new person();
-
-$res = $obj -> personinfo(54402016);
-
-if ($res == false){
-    echo "me";
-
-}
-*/
 
 ?>

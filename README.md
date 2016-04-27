@@ -1,16 +1,4 @@
-<?php
-    include_once("adb.php");
-    
-    class patients extends adb{
-        
-        function patients(){
-            
-        }
-        
-        function findpatient($id){
-            $strQuery = "SELECT * FROM patientsInfo WHERE ID = '$id'";
-            
-            return $this -> query($strQuery);
-        }
-    }
-?>
+This is a clinic application that we did in our webtech class in Ashesi University College. We wish you a warm welcome to this branch. 
+
+Here you will find the final version that we submitted in the class. It contains the merged work of 5 people.
+
