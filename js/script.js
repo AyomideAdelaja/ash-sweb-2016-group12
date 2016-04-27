@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 var currentUsername = document.getElementById('cur_user_id').innerHTML;
 
@@ -7,8 +6,6 @@ $(document).ready(function(){
   console.log("ready!");
 });
 
-=======
->>>>>>> origin/searchMedicalHistory2
 /* Code from https://www.christianheilmann.com/2015/04/08/keeping-it-simple-coding-a-carousel/ */
 
 carousel = (function(){
@@ -41,7 +38,6 @@ carousel = (function(){
     navigate(-1);
   });
   navigate(0);
-<<<<<<< HEAD
 
 })();
 
@@ -153,6 +149,4 @@ document.getElementById('popup-div').style.display = "block";
 function div_hide(){
 document.getElementById('popup-div').style.display = "none";
 }
-=======
-})();
->>>>>>> origin/searchMedicalHistory2
+
